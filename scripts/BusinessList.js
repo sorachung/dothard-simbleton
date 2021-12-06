@@ -45,3 +45,19 @@ export const BusinessListAgents = () => {
   return content;
 }
 
+
+const companySearchResultArticle = document.querySelector(".foundCompanies")
+
+document.querySelector("#companySearch").addEventListener("keypress", event => {
+  if (event.charCode === 13) {
+    const foundBusiness = businesses.find(business => business.companyName.toLowerCase().includes(event.target.value));
+    if (event.target.value && foundBusiness) {
+      companySearchResultArticle.innerHTML = Business(foundBusiness);
+    } else {
+      companySearchResultArticle.innerHTML = `No business found`
+    }
+    
+  }
+
+}
+)

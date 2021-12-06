@@ -4,6 +4,7 @@ const mainContainer = document.querySelector("#container");
 
 const renderAllHTML = () => {
   mainContainer.innerHTML = `
+
   <article class="businessList">
     <h1>Active Businesses</h1>
     ${BusinessList()}
@@ -26,8 +27,7 @@ const renderAllHTML = () => {
     <h1>Purchasing Agents</h1>
     ${BusinessListAgents()}
   </article>
-
-  `;
+  `
 }
 
 renderAllHTML();
