@@ -1,25 +1,30 @@
-import { Business, BusinessNewYork, BusinessManufacturing } from "./Business.js";
+import { getBusiness } from "./database.js";
+import { Business } from "./Business.js";
 
+const businesses = getBusiness();
 
 export const BusinessList = () => {
-  const businessHTML = Business();
-  return `
-  <article class="businessList">
-    <h1>Active Businesses</h1>
-    ${Business()}
-  </article>
-
-  <article class="businessList--newYork">
-    <!-- New York businesses go here --->
-    <h1>New York Businesses</h1>
-    ${BusinessNewYork()}
-  </article>
+  let content = ""
+  businesses.forEach(business => content += Business(business))
+  return content;
   
-  <article class="businessList--manufacturing">
-    <!-- Manufacturing businesses go here --->
-    <h1>Manufacturing Businesses</h1>
-    ${BusinessManufacturing()}
-  </article>
-
-  `
 }
+
+export const BusinessListNewYork = () => {
+  let content = ""
+  businesses.filter(business => {
+    return business.addressStateCode === "NY"
+  }).forEach(business => content += Business(business))
+
+  return content;
+}
+
+export const BusinessListManufacturing = () => {
+  let content = ""
+  businesses.filter(business => {
+    return business.companyIndustry === "Manufacturing"
+  }).forEach(business => content += Business(business))
+
+  return content;
+}
+
