@@ -142,3 +142,13 @@ const businesses = [
 ]
 
 export const getBusiness = () => businesses.map(business => ({ ...business }))
+
+export const getPurchasingAgents = () => {
+  return businesses.map(business => {
+    return {
+      fullName: `${business.purchasingAgent.nameFirst} ${business.purchasingAgent.nameLast}`,
+      company: business.companyName,
+      phoneNumber: business.phoneWork
+    }
+  })
+}

@@ -1,4 +1,4 @@
-import { BusinessList, BusinessListNewYork, BusinessListManufacturing } from "./BusinessList.js";
+import { BusinessList, BusinessListNewYork, BusinessListManufacturing, BusinessListAgents } from "./BusinessList.js";
 
 const mainContainer = document.querySelector("#container");
 
@@ -19,6 +19,12 @@ const renderAllHTML = () => {
     <!-- Manufacturing businesses go here --->
     <h1>Manufacturing Businesses</h1>
     ${BusinessListManufacturing()}
+  </article>
+
+  <article class="agents">
+    <!-- Purchasing agents go here --->
+    <h1>Purchasing Agents</h1>
+    ${BusinessListAgents()}
   </article>
 
   `;
